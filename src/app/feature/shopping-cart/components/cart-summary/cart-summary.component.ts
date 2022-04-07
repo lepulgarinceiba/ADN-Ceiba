@@ -13,7 +13,7 @@ import { Product } from "@shared/interfaces/products-interface";
   styleUrls: ["./cart-summary.component.sass"],
 })
 export class CartSummaryComponent implements OnInit, DoCheck {
-  @Input() productsOnCart: Product[];
+  @Input() productsOnCart: Product[] = [];
 
   constructor(_iterableDiffers: IterableDiffers) {
     this._iterableDiffer = _iterableDiffers;
