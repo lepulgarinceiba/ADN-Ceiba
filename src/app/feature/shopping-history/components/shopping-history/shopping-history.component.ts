@@ -1,6 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { Product } from "@shared/interfaces/products-interface";
 import { ShoppingHistoryService } from "@shopping-history/shared/services/shopping-history.service";
+import { Observable } from "rxjs";
+import { tap } from "rxjs/operators";
 
 @Component({
   selector: "app-shopping-history",
@@ -10,17 +12,20 @@ import { ShoppingHistoryService } from "@shopping-history/shared/services/shoppi
 export class ShoppingHistoryComponent implements OnInit {
   constructor(private _shoppingHistoryService: ShoppingHistoryService) {}
 
-  public shoppingHistory: Product[] = [];
+  public shoppingHistory$: Observable<Product[]>;
+  public loadingShoppingHistory: boolean = false;
 
   ngOnInit(): void {
     this.getShoppingHistory();
   }
 
-  getShoppingHistory() {
-    this._shoppingHistoryService
+  /**
+   * this method is used to get the shopping history
+   */
+  public getShoppingHistory() {
+    this.loadingShoppingHistory = true;
+    this.shoppingHistory$ = this._shoppingHistoryService
       .getShoppingHistory()
-      .subscribe((shoppingHistory) => {
-        this.shoppingHistory = shoppingHistory;
-      });
+      .pipe(tap(() => (this.loadingShoppingHistory = false)));
   }
 }

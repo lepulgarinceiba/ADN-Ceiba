@@ -24,5 +24,8 @@ describe("ProductsListComponent", () => {
 
   it("should create", () => {
     expect(component).toBeTruthy();
+    component.productsList$.subscribe((resultado) => {
+      expect(0).toBe(resultado.length);
+    });
   });
 });

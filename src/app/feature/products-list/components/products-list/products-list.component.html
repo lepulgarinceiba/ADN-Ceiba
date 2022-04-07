@@ -6,12 +6,12 @@
   </section>
   <section>
     <div class="products_grid">
-      <ng-template ngFor let-product [ngForOf]="productsList" [ngForTrackBy]="('id' | trackBy)">
+      <ng-template ngFor let-product [ngForOf]="productsList$ | async" [ngForTrackBy]="('id' | trackBy)">
         <div class="products_grid__element">
           <app-product-element [product]="product"></app-product-element>
         </div>
       </ng-template>
-      <ng-container *ngIf="productsList.length === 0">
+      <ng-container *ngIf="loadingProductsList">
         <div class="products_grid__element p-2" *ngFor="let i of [0 ,1]">
           <app-product-element-skeleton></app-product-element-skeleton>
         </div>

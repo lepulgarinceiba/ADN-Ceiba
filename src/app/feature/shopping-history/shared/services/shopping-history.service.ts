@@ -8,8 +8,6 @@ import { environment } from "src/environments/environment";
   providedIn: "root",
 })
 export class ShoppingHistoryService {
-  URL_API: string = `${environment.endpoint}`;
-
   constructor(protected http: HttpService) {}
 
   /**
@@ -18,7 +16,7 @@ export class ShoppingHistoryService {
    */
   public getShoppingHistory(): Observable<Product[]> {
     return this.http.doGet<Product[]>(
-      `${this.URL_API}shopping-history`,
+      `${environment.endpoint}shopping-history`,
       this.http.optsName("consultar historial de compras")
     );
   }

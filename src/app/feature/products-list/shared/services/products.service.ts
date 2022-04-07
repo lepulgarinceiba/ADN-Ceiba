@@ -8,8 +8,6 @@ import { environment } from "src/environments/environment";
   providedIn: "root",
 })
 export class ProductsService {
-  URL_API: string = `${environment.endpoint}`;
-
   constructor(protected http: HttpService) {}
 
   /**
@@ -18,7 +16,7 @@ export class ProductsService {
    */
   public getProducts(): Observable<Product[]> {
     return this.http.doGet<Product[]>(
-      `${this.URL_API}products`,
+      `${environment.endpoint}products`,
       this.http.optsName("consultar productos")
     );
   }

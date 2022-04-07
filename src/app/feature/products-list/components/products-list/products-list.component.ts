@@ -1,6 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { ProductsService } from "@products-list/shared/services/products.service";
 import { Product } from "@shared/interfaces/products-interface";
+import { Observable } from "rxjs";
+import { tap } from "rxjs/operators";
 
 @Component({
   selector: "app-products-list",
@@ -8,20 +10,21 @@ import { Product } from "@shared/interfaces/products-interface";
   styleUrls: ["./products-list.component.sass"],
 })
 export class ProductsListComponent implements OnInit {
-  constructor(private _productsService: ProductsService) {
+  constructor(private _productsService: ProductsService) {}
+
+  public productsList$: Observable<Product[]>;
+  public loadingProductsList: boolean = false;
+  ngOnInit(): void {
     this.getProductsList();
   }
-
-  public productsList: Product[] = [];
-
-  ngOnInit(): void {}
 
   /**
    * this method is used to get the products list
    */
   public getProductsList() {
-    this._productsService.getProducts().subscribe((products: Product[]) => {
-      this.productsList = products;
-    });
+    this.loadingProductsList = true;
+    this.productsList$ = this._productsService
+      .getProducts()
+      .pipe(tap(() => (this.loadingProductsList = false)));
   }
 }
