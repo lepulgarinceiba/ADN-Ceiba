@@ -1,0 +1,33 @@
+.product-container
+    padding-bottom: .5rem
+    &__image img
+        width: 100%
+    &__info
+        padding: .7rem
+        &__type
+            font-size: 1.1rem
+            color: #888
+            margin-bottom: .5rem
+            margin-top: 0
+            font-weight: bold
+        &__description
+            font-size: 1.2rem
+            font-weight: 200
+            margin: 0
+        &__stock
+            font-size: 1rem
+            font-weight: 200
+            margin: 0
+            color: #888
+        &__price
+            font-size: 1.4rem
+            color: var(--primary-color)
+            margin-top: .5rem
+            margin-bottom: .5rem
+        &__cart-button
+            visibility: hidden
+            width: 100%
+            text-align: center
+    &:hover &__info
+        &__cart-button
+            visibility: visible

@@ -1,12 +1,15 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
-import { MensajeErrorCamposDirective } from './directivas/error-campos/directiva/mensaje-error-campos.directive';
-import { MensajeErrorCamposSubmitDirective } from './directivas/error-campos/directiva/mensaje-error-campos-submit.directive';
-import { MensajeErrorCamposContenedorDirective } from './directivas/error-campos/directiva/mensaje-error-campos-contenedor.directive';
-import { ErrorCamposPlantillaComponent } from './directivas/error-campos/componente/error-campos-plantilla.component';
-import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { TrackByPipe } from './pipe/track-by.pipe';
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
+import { HttpClientModule } from "@angular/common/http";
+import { MensajeErrorCamposDirective } from "./directivas/error-campos/directiva/mensaje-error-campos.directive";
+import { MensajeErrorCamposSubmitDirective } from "./directivas/error-campos/directiva/mensaje-error-campos-submit.directive";
+import { MensajeErrorCamposContenedorDirective } from "./directivas/error-campos/directiva/mensaje-error-campos-contenedor.directive";
+import { ErrorCamposPlantillaComponent } from "./directivas/error-campos/componente/error-campos-plantilla.component";
+import { ReactiveFormsModule, FormsModule } from "@angular/forms";
+import { TrackByPipe } from "./pipe/track-by.pipe";
+import { ProductElementComponent } from "./components/product-element/product-element.component";
+import { SharedPrimeNGModule } from "./sharedPrimeNG/shared-prime-ng/shared-prime-ng.module";
+import { ProductElementSkeletonComponent } from "./components/product-element-skeleton/product-element-skeleton.component";
 
 @NgModule({
   declarations: [
@@ -14,9 +17,16 @@ import { TrackByPipe } from './pipe/track-by.pipe';
     MensajeErrorCamposDirective,
     MensajeErrorCamposContenedorDirective,
     MensajeErrorCamposSubmitDirective,
-    TrackByPipe
+    TrackByPipe,
+    ProductElementComponent,
+    ProductElementSkeletonComponent,
   ],
-  imports: [ReactiveFormsModule, FormsModule],
+  imports: [
+    ReactiveFormsModule,
+    FormsModule,
+    SharedPrimeNGModule,
+    CommonModule,
+  ],
   exports: [
     CommonModule,
     HttpClientModule,
@@ -25,7 +35,9 @@ import { TrackByPipe } from './pipe/track-by.pipe';
     MensajeErrorCamposSubmitDirective,
     ReactiveFormsModule,
     FormsModule,
-    TrackByPipe
-  ]
+    TrackByPipe,
+    ProductElementComponent,
+    ProductElementSkeletonComponent,
+  ],
 })
-export class SharedModule { }
+export class SharedModule {}

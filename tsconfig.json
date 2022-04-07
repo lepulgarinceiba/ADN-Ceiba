@@ -21,21 +21,28 @@
       "dom"
     ],
     "paths": {
+      "primeng/*": ["node_modules/primeng-lts/*"],
       "@core/*": [
         "src/app/core/*"
       ],
       "@core-service/*": [
         "src/app/core/services/*"
       ],
-      "@home/*": [
-        "src/app/feature/home/*"
-      ],
       "@producto/*": [
         "src/app/feature/producto/*"
       ],
       "@shared/*": [
         "src/app/shared/*"
-      ]
+      ],
+      "@products-list/*": [
+        "src/app/feature/products-list/*"
+      ],
+      "@shopping-cart/*": [
+        "src/app/feature/shopping-cart/*"
+      ],
+      "@shopping-history/*": [
+        "src/app/feature/shopping-history/*"
+      ],
     }
   },
   "angularCompilerOptions": {

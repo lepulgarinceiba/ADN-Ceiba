@@ -1,40 +1,35 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { MenuItem } from '@core/modelo/menu-item';
+import { Component, OnInit, OnDestroy } from "@angular/core";
+import { CookiesService } from "@shared/services/cookies/cookie.service";
 
 @Component({
-  selector: 'app-navbar',
-  templateUrl: 'navbar.component.html',
-  styles: [`:host {
-    border: 0 solid #e1e1e1;
-    border-bottom-width: 1px;
-    display: block;
-    height: 48px;
-    padding: 0 16px;
-  }
-
-  nav a {
-    color: #8f8f8f;
-    font-size: 14px;
-    font-weight: 500;
-    line-height: 48px;
-    margin-right: 20px;
-    text-decoration: none;
-    vertical-align: middle;
-    cursor: pointer;
-  }
-
-  nav a.router-link-active {
-    color: #106cc8;
-  }`],
+  selector: "app-navbar",
+  templateUrl: "navbar.component.html",
+  styleUrls: ["navbar.component.sass"],
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent implements OnInit, OnDestroy {
+  constructor(private _cookieService: CookiesService) {}
 
-  @Input()
-  items: MenuItem[];
-
-  constructor() { }
+  public cartItemsQuantity: number = 0;
+  public sideBarVisible: boolean = false;
 
   ngOnInit() {
+    this.getCartItemsQuantity();
   }
 
+  ngOnDestroy(): void {
+    this._cookieService.completeWatchCookie();
+  }
+
+  /**
+   * this method gets the quantity of items in the cart and suscribes to the observable
+   * that emits the quantity of items in the cart
+   */
+  public getCartItemsQuantity() {
+    this.cartItemsQuantity = JSON.parse(
+      this._cookieService.getValue("cart") || "[]"
+    ).length;
+    this._cookieService.watchCookie().subscribe((cart) => {
+      this.cartItemsQuantity = JSON.parse(cart).length;
+    });
+  }
 }

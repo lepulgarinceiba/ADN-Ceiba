@@ -19,7 +19,16 @@
       ],
       "@shared/*": [
         "src/app/shared/*"
-      ]
+      ],
+      "@products-list/*": [
+        "src/app/feature/products-list/*"
+      ],
+      "@shopping-cart/*": [
+        "src/app/feature/shopping-cart/*"
+      ],
+      "@shopping-history/*": [
+        "src/app/feature/shopping-history/*"
+      ],
     }
   },
   "files": [

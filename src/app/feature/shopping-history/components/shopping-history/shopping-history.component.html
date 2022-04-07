@@ -1,0 +1,21 @@
+<div class="container">
+  <section>
+    <div class="section-tittle">
+      <h1 class="sm:ml-4">Historial de compras</h1>
+    </div>
+  </section>
+  <section>
+    <div class="products_grid">
+      <ng-template ngFor let-product [ngForOf]="shoppingHistory" [ngForTrackBy]="('id' | trackBy)">
+        <div class="products_grid__element">
+          <app-product-element [product]="product" [isHistoryProduct]="true"></app-product-element>
+        </div>
+      </ng-template>
+      <ng-container *ngIf="shoppingHistory.length === 0">
+        <div class="products_grid__element p-2" *ngFor="let i of [0 ,1]">
+          <app-product-element-skeleton></app-product-element-skeleton>
+        </div>
+      </ng-container>
+    </div>
+  </section>
+</div>

@@ -1,18 +1,39 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { SecurityGuard } from '@core/guard/security.guard';
-import { HomeComponent } from '@home/home.component';
-
+import { NgModule } from "@angular/core";
+import { Routes, RouterModule } from "@angular/router";
+// import { SecurityGuard } from "@core/guard/security.guard";
 
 const routes: Routes = [
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: 'home', component: HomeComponent, canActivate: [SecurityGuard]  },
-  { path: 'producto', loadChildren: () => import('@producto/producto.module').then(mod => mod.ProductoModule) }
-  
+  {
+    path: "products",
+    loadChildren: () =>
+      import("@products-list/products-list.module").then(
+        (mod) => mod.ProductsListModule
+      ),
+  },
+  {
+    path: "shopping-cart",
+    loadChildren: () =>
+      import("@shopping-cart/shopping-cart.module").then(
+        (mod) => mod.ShoppingCartModule
+      ),
+  },
+  {
+    path: "shopping-history",
+    loadChildren: () =>
+      import("@shopping-history/shopping-history.module").then(
+        (mod) => mod.ShoppingHistoryModule
+      ),
+  },
+  {
+    path: "producto",
+    loadChildren: () =>
+      import("@producto/producto.module").then((mod) => mod.ProductoModule),
+  },
+  { path: "", redirectTo: "/products", pathMatch: "full" },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' })],
-  exports: [RouterModule]
+  imports: [RouterModule.forRoot(routes, { relativeLinkResolution: "legacy" })],
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
