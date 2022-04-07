@@ -1,0 +1,97 @@
+{
+    "products": [
+        {
+            "id": 1,
+            "description": "Google Chromecast 3",
+            "price": "159900",
+            "type": "technology",
+            "stock": 32,
+            "image": "https://falabella.scene7.com/is/image/FalabellaCO/11566027?wid=240&hei=240&qlt=70"
+        },
+        {
+            "id": 2,
+            "description": "Teclado inalámbrico",
+            "price": "29900",
+            "type": "electronics",
+            "stock": 12,
+            "image": "https://falabella.scene7.com/is/image/FalabellaCO/882096583?wid=240&hei=240&qlt=70"
+        },
+        {
+            "id": 3,
+            "description": "Google Chromecast 3",
+            "price": "159900",
+            "type": "technology",
+            "stock": 32,
+            "image": "https://falabella.scene7.com/is/image/FalabellaCO/11566027?wid=240&hei=240&qlt=70"
+        },
+        {
+            "id": 4,
+            "description": "Google Chromecast 3",
+            "price": "159900",
+            "type": "technology",
+            "stock": 32,
+            "image": "https://falabella.scene7.com/is/image/FalabellaCO/11566027?wid=240&hei=240&qlt=70"
+        },
+        {
+            "id": 5,
+            "description": "Google Chromecast 3",
+            "price": "159900",
+            "type": "technology",
+            "stock": 32,
+            "image": "https://falabella.scene7.com/is/image/FalabellaCO/11566027?wid=240&hei=240&qlt=70"
+        },
+        {
+            "id": 6,
+            "description": "Google Chromecast 3",
+            "price": "159900",
+            "type": "technology",
+            "stock": 32,
+            "image": "https://falabella.scene7.com/is/image/FalabellaCO/11566027?wid=240&hei=240&qlt=70"
+        },
+        {
+            "id": 7,
+            "description": "Google Chromecast 3",
+            "price": "159900",
+            "type": "technology",
+            "stock": 32,
+            "image": "https://falabella.scene7.com/is/image/FalabellaCO/11566027?wid=240&hei=240&qlt=70"
+        },
+        {
+            "id": 8,
+            "description": "Google Chromecast 3",
+            "price": "159900",
+            "type": "technology",
+            "stock": 32,
+            "image": "https://falabella.scene7.com/is/image/FalabellaCO/11566027?wid=240&hei=240&qlt=70"
+        }
+    ],
+    "shopping-history": [
+        {
+            "id": 1,
+            "description": "Google Chromecast 3",
+            "price": "159900",
+            "type": "technology",
+            "image": "https://falabella.scene7.com/is/image/FalabellaCO/11566027?wid=240&hei=240&qlt=70",
+            "buyQuantity": 3,
+            "boughtAt": "2020-05-01T00:00:00.000Z"
+        },
+        {
+            "id": 2,
+            "description": "Teclado inalámbrico",
+            "price": "29900",
+            "type": "electronics",
+            "image": "https://falabella.scene7.com/is/image/FalabellaCO/882096583?wid=240&hei=240&qlt=70",
+            "buyQuantity": 1,
+            "boughtAt": "2020-05-01T00:00:00.000Z"
+        },
+        {
+            "id": 3,
+            "description": "Google Chromecast 3",
+            "price": "159900",
+            "type": "technology",
+            "image": "https://falabella.scene7.com/is/image/FalabellaCO/11566027?wid=240&hei=240&qlt=70",
+            "buyQuantity": 12,
+            "boughtAt": "2020-05-01T00:00:00.000Z"
+        }
+    ]
+}
