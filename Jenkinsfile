@@ -73,18 +73,6 @@ pipeline {
 
     }
 
-    stage('Run json server') {
-
-      steps{
-
-        echo "------------>Run<------------"
-
-        sh 'cd json-server && json-server --watch ./products-dataBase.json'
-
-      }
-
-    }
-
     stage('Test') {
 
       steps{
