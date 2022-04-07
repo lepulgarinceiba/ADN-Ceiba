@@ -47,7 +47,7 @@ pipeline {
 
                 url:'https://github.com/lepulgarinceiba/ADN-Ceiba.git'
 
-            ]]
+            ]],
 
         ])
 
