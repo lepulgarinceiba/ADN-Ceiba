@@ -64,6 +64,5 @@ export class ProductElementComponent implements OnInit {
     }
     product.buyQuantity = 1;
     storedProducts.push(product);
-    return;
   }
 }

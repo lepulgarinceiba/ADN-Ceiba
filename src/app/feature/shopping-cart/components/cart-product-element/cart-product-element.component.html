@@ -15,7 +15,8 @@
     <div class='cart-product__prices__quantity field'>
       <p-inputNumber *ngIf='product' [(ngModel)]='product.buyQuantity' min='1' spinnerMode='vertical'
         buttonLayout='vertical' [showButtons]='true' inputId='horizontal' mode='decimal'
-        incrementButtonIcon='pi pi-plus' decrementButtonIcon='pi pi-minus' (ngModelChange)='emitQuantityChanged()'>
+        incrementButtonIcon='pi pi-plus' decrementButtonIcon='pi pi-minus' (ngModelChange)='emitQuantityChanged()'
+        incrementButtonClass="increment-quantity" decrementButtonClass="decrement-quantity">
       </p-inputNumber>
     </div>
   </div>
