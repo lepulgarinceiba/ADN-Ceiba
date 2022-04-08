@@ -17,6 +17,9 @@ export class CartSummaryComponent implements OnInit, DoCheck {
 
   constructor(_iterableDiffers: IterableDiffers) {
     this._iterableDiffer = _iterableDiffers;
+    this.shippingPrice = 4000;
+    this.subTotalPrice = 0;
+    this.discount = 0;
     this.shippingStartDate = this._calculateShippingDates(
       new Date(this._todayDate.getTime())
     );
@@ -49,9 +52,9 @@ export class CartSummaryComponent implements OnInit, DoCheck {
     '12/25',
   ];
 
-  public shippingPrice = 4000;
-  public subTotalPrice = 0;
-  public discount = 0;
+  public shippingPrice: number;
+  public subTotalPrice: number;
+  public discount: number;
   public shippingStartDate: Date;
   public shippingEndDate: Date;
 
@@ -79,7 +82,8 @@ export class CartSummaryComponent implements OnInit, DoCheck {
 
   private _calculateShippingDates(date: Date) {
     let shippingDate = date;
-    Array.from(Array(3)).forEach(() => {
+    const cicleTimes = 3;
+    Array.from(Array(cicleTimes)).forEach(() => {
       shippingDate = this._nextBusinessDay(shippingDate);
     });
     return shippingDate;
@@ -87,8 +91,9 @@ export class CartSummaryComponent implements OnInit, DoCheck {
 
   private _nextBusinessDay(date: Date) {
     date.setDate(date.getDate() + 1);
+    const operator = 6;
     if (
-      date.getDay() % 6 === 0 ||
+      date.getDay() % operator === 0 ||
       this._holidays.includes(`${date.getMonth() + 1}/${date.getDate()}`)
     ) {
       return this._nextBusinessDay(new Date(date.setDate(date.getDate() + 1)));
