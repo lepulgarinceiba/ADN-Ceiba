@@ -2,7 +2,7 @@
 
 ### Estructura base
 
-Dentro de la carpeta *assets* tenemos la carpeta *sass* y dentro de ella obtendremos la siguiente estructura base, con esta estructura podemos construir nuevos archivos según los elementos que estemos construyendo.
+Dentro de la carpeta _assets_ tenemos la carpeta _sass_ y dentro de ella obtendremos la siguiente estructura base, con esta estructura podemos construir nuevos archivos según los elementos que estemos construyendo.
 
 ![enter image description here](https://drive.google.com/uc?export=download&id=1MrLIwGTAIRVppffYjzY6IKFSx4VvEhrx)
 
@@ -16,16 +16,16 @@ El nuestra proyecto angular-base.sass tendremos dentro de **src** un archivo sty
 
 ```sass
 // Modules and var
-@import "assets/sass/modules/var"
-@import "assets/sass/modules/mixins"
-@import "assets/sass/modules/utility"
+@import 'assets/sass/modules/var'
+@import 'assets/sass/modules/mixins'
+@import 'assets/sass/modules/utility'
 
 // Partials
-@import "assets/sass/partials/reset"
-@import "assets/sass/partials/typography"
-@import "assets/sass/partials/grids"
-@import "assets/sass/partials/global"
-@import "assets/sass/partials/buttons"
+@import 'assets/sass/partials/reset'
+@import 'assets/sass/partials/typography'
+@import 'assets/sass/partials/grids'
+@import 'assets/sass/partials/global'
+@import 'assets/sass/partials/buttons'
 ```
 
 ### Librerias externas

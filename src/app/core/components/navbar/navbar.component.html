@@ -1,20 +1,20 @@
-<nav class="nav">
-  <a class="nav__tittle" routerLink="/products">Distribuidora Ceiba</a>
-  <div class="nav__links hidden sm:block">
-    <a id="productList" routerLink="/products" routerLinkActive="active">Lista de productos</a>
-    <a id="shoppingHistory" routerLink="/shopping-history" routerLinkActive="active">Historial de compras</a>
-    <i id="shoppingCart" class="nav__links__cart-icon pi pi-shopping-cart" routerLink="/shopping-cart">
-      <p-badge value="{{ cartItemsQuantity }}" severity="success" styleClass="cart-badge"></p-badge>
+<nav class='nav'>
+  <a class='nav__tittle' routerLink='/products'>Distribuidora Ceiba</a>
+  <div class='nav__links hidden sm:block'>
+    <a id='productList' routerLink='/products' routerLinkActive='active'>Lista de productos</a>
+    <a id='shoppingHistory' routerLink='/shopping-history' routerLinkActive='active'>Historial de compras</a>
+    <i id='shoppingCart' class='nav__links__cart-icon pi pi-shopping-cart' routerLink='/shopping-cart'>
+      <p-badge value='{{ cartItemsQuantity }}' severity='success' styleClass='cart-badge'></p-badge>
     </i>
   </div>
-  <p-button id="sideBarToggle" type="text" (click)="sideBarVisible = true" icon="pi pi-bars" class="sm:hidden ml-auto">
+  <p-button id='sideBarToggle' type='text' (click)='sideBarVisible = true' icon='pi pi-bars' class='sm:hidden ml-auto'>
   </p-button>
-  <p-sidebar [(visible)]="sideBarVisible" position="right">
-    <p id="productList" routerLink="/products" routerLinkActive="active">Lista de productos</p>
-    <p id="shoppingHistory" routerLink="/shopping-history" routerLinkActive="active">Historial de compras</p>
-    <p style="text-align: center">
-      <i id="shoppingCart" class="nav__links__cart-icon pi pi-shopping-cart" routerLink="/shopping-cart">
-        <p-badge value="{{ cartItemsQuantity }}" severity="success" styleClass="cart-badge"></p-badge>
+  <p-sidebar [(visible)]='sideBarVisible' position='right'>
+    <p id='productList' routerLink='/products' routerLinkActive='active'>Lista de productos</p>
+    <p id='shoppingHistory' routerLink='/shopping-history' routerLinkActive='active'>Historial de compras</p>
+    <p style='text-align: center'>
+      <i id='shoppingCart' class='nav__links__cart-icon pi pi-shopping-cart' routerLink='/shopping-cart'>
+        <p-badge value='{{ cartItemsQuantity }}' severity='success' styleClass='cart-badge'></p-badge>
       </i>
     </p>
   </p-sidebar>

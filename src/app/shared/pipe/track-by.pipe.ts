@@ -4,9 +4,9 @@
  *
  * Un ejemplo de como se debería usar en un ngFor
  * - Ejemplo:
- *    *ngFor="let profesor of profesores; ; trackBy: 'id' | trackBy"
+ *    *ngFor='let profesor of profesores; ; trackBy: 'id' | trackBy'
  *    O
- *    *ngFor="let usuario of usuarios; ; trackBy: 'email' | trackBy"
+ *    *ngFor='let usuario of usuarios; ; trackBy: 'email' | trackBy'
  *
  */
 

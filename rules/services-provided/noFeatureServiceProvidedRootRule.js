@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
@@ -13,8 +13,8 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 exports.__esModule = true;
-var Lint = require("tslint");
-var ts = require("typescript");
+var Lint = require('tslint');
+var ts = require('typescript');
 var Rule = /** @class */ (function (_super) {
     __extends(Rule, _super);
     function Rule() {

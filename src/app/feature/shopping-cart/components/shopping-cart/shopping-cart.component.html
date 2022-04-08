@@ -1,23 +1,23 @@
-<div class="container">
-  <div class="grid">
-    <div class="col-12 lg:col-8">
-      <div class="cart-tittle">
-        <h1 class="sm:ml-4">Carrito de compras <span>({{productsOnCart.length}} productos)</span></h1>
+<div class='container'>
+  <div class='grid'>
+    <div class='col-12 lg:col-8'>
+      <div class='cart-tittle'>
+        <h1 class='sm:ml-4'>Carrito de compras <span>({{productsOnCart.length}} productos)</span></h1>
       </div>
-      <ng-template ngFor let-product [ngForOf]="productsOnCart" [ngForTrackBy]="('id' | trackBy)">
-        <app-cart-product-element [product]="product" (quantityChanged)="changeProductQuantity()"
-          (removeFromCart)="removeProductFromCart($event)">
+      <ng-template ngFor let-product [ngForOf]='productsOnCart' [ngForTrackBy]='(" id" | trackBy)'>
+        <app-cart-product-element [product]='product' (quantityChanged)='changeProductQuantity()'
+          (removeFromCart)='removeProductFromCart($event)'>
         </app-cart-product-element>
       </ng-template>
-      <div *ngIf="productsOnCart.length === 0" class="cart-empty">
+      <div *ngIf='productsOnCart.length === 0' class='cart-empty'>
         <h2>
           No hay elementos en el carrito de compras
         </h2>
-        <b routerLink="/products">Agregar productos</b>
+        <b routerLink='/products'>Agregar productos</b>
       </div>
     </div>
-    <div class="col-12 lg:col-4">
-      <app-cart-summary [productsOnCart]="productsOnCart"></app-cart-summary>
+    <div class='col-12 lg:col-4'>
+      <app-cart-summary [productsOnCart]='productsOnCart'></app-cart-summary>
     </div>
   </div>
 </div>

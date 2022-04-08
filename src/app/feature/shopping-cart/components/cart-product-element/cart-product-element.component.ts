@@ -1,11 +1,11 @@
-import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
-import productType from "@shared/interfaces/product-type-dictionary";
-import { Product } from "@shared/interfaces/products-interface";
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import productType from '@shared/interfaces/product-type-dictionary';
+import { Product } from '@shared/interfaces/products-interface';
 
 @Component({
-  selector: "app-cart-product-element",
-  templateUrl: "./cart-product-element.component.html",
-  styleUrls: ["./cart-product-element.component.sass"],
+  selector: 'app-cart-product-element',
+  templateUrl: './cart-product-element.component.html',
+  styleUrls: ['./cart-product-element.component.sass'],
 })
 export class CartProductElementComponent implements OnInit {
   @Input() product: Product;

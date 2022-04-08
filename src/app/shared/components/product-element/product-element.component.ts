@@ -1,18 +1,18 @@
-import { Component, Input, OnInit } from "@angular/core";
-import { MessageService } from "primeng-lts/api";
-import { Product } from "../../interfaces/products-interface";
-import productType from "../../interfaces/product-type-dictionary";
-import { CookiesService } from "@shared/services/cookies/cookie.service";
+import { Component, Input, OnInit } from '@angular/core';
+import { MessageService } from 'primeng-lts/api';
+import { Product } from '../../interfaces/products-interface';
+import productType from '../../interfaces/product-type-dictionary';
+import { CookiesService } from '@shared/services/cookies/cookie.service';
 
 @Component({
-  selector: "app-product-element",
-  templateUrl: "./product-element.component.html",
-  styleUrls: ["./product-element.component.sass"],
+  selector: 'app-product-element',
+  templateUrl: './product-element.component.html',
+  styleUrls: ['./product-element.component.sass'],
   providers: [MessageService],
 })
 export class ProductElementComponent implements OnInit {
   @Input() product: Product;
-  @Input() isHistoryProduct: boolean = false;
+  @Input() isHistoryProduct = false;
   constructor(
     private _cookieService: CookiesService,
     private _messageService: MessageService
@@ -30,18 +30,18 @@ export class ProductElementComponent implements OnInit {
   public addToCart(product: Product) {
     try {
       const storedProducts: Product[] = JSON.parse(
-        this._cookieService.getValue("cart") || "[]"
+        this._cookieService.getValue('cart') || '[]'
       );
       this.searchProductExistence(product, storedProducts);
-      this._cookieService.setValue("cart", JSON.stringify(storedProducts));
+      this._cookieService.setValue('cart', JSON.stringify(storedProducts));
       this._messageService.add({
-        severity: "success",
-        summary: "Producto agregado al carrito",
+        severity: 'success',
+        summary: 'Producto agregado al carrito',
       });
     } catch (error) {
       this._messageService.add({
-        severity: "error",
-        summary: "Error al agregar el producto al carrito",
+        severity: 'error',
+        summary: 'Error al agregar el producto al carrito',
       });
     }
   }
@@ -62,7 +62,7 @@ export class ProductElementComponent implements OnInit {
       storedProducts[productExistenceIndex].buyQuantity++;
       return;
     }
-    product["buyQuantity"] = 1;
+    product.buyQuantity = 1;
     storedProducts.push(product);
     return;
   }

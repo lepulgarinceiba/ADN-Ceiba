@@ -25,7 +25,7 @@ pipeline {
 
       steps{
 
-        echo "------------>Checkout<------------"
+        echo '------------>Checkout<------------'
 
         checkout([
 
@@ -65,7 +65,7 @@ pipeline {
 
       steps{
 
-        echo "------------>Install<------------"
+        echo '------------>Install<------------'
 
         sh 'npm install'
 
@@ -77,7 +77,7 @@ pipeline {
 
       steps{
 
-        echo "------------>Test<------------"
+        echo '------------>Test<------------'
 
         sh 'npm run test -- --watch=false --browsers ChromeHeadless'
 
@@ -93,7 +93,7 @@ pipeline {
 
         withSonarQubeEnv('Sonar') {
 
-            sh "${tool name: 'SonarScanner', type:'hudson.plugins.sonar.SonarRunnerInstallation'}/bin/sonar-scanner -Dproject.settings=sonar-project.properties"
+            sh '${tool name: 'SonarScanner', type:'hudson.plugins.sonar.SonarRunnerInstallation'}/bin/sonar-scanner -Dproject.settings=sonar-project.properties'
 
         }
 
@@ -108,7 +108,7 @@ pipeline {
 
       steps {
 
-        echo "------------>Build<------------"
+        echo '------------>Build<------------'
 
         sh 'npm run build'
 

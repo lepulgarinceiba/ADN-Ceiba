@@ -1,21 +1,21 @@
-<div class="cart-product grid">
-  <div class="cart-product__details col-12 sm:col-6">
-    <div class="cart-product__details__image">
-      <img src="{{product?.image}}" alt="product_{{product?.id}}">
+<div class='cart-product grid'>
+  <div class='cart-product__details col-12 sm:col-6'>
+    <div class='cart-product__details__image'>
+      <img src='{{product?.image}}' alt='product_{{product?.id}}'>
     </div>
-    <div class="cart-product__details__info">
-      <p class="cart-product__details__info__type">{{productTypeDictionary.get(product?.type)}}</p>
-      <p class="cart-product__details__info__description">{{product?.description}}</p>
-      <p class="cart-product__details__info__id">Identificador {{product?.id}}</p>
-      <a class="cart-product__details__info__action" (click)="emitRemoveFromCart()">Eliminar producto</a>
+    <div class='cart-product__details__info'>
+      <p class='cart-product__details__info__type'>{{productTypeDictionary.get(product?.type)}}</p>
+      <p class='cart-product__details__info__description'>{{product?.description}}</p>
+      <p class='cart-product__details__info__id'>Identificador {{product?.id}}</p>
+      <a class='cart-product__details__info__action' (click)='emitRemoveFromCart()'>Eliminar producto</a>
     </div>
   </div>
-  <div class="cart-product__prices col-12 sm:col-6">
-    <p class="cart-product__prices__price">{{product?.price | currency: "":"$ ":"1.0-0":"en_US"}}</p>
-    <div class="cart-product__prices__quantity field">
-      <p-inputNumber *ngIf="product" [(ngModel)]="product.buyQuantity" min="1" spinnerMode="vertical"
-        buttonLayout="vertical" [showButtons]="true" inputId="horizontal" mode="decimal"
-        incrementButtonIcon="pi pi-plus" decrementButtonIcon="pi pi-minus" (ngModelChange)="emitQuantityChanged()">
+  <div class='cart-product__prices col-12 sm:col-6'>
+    <p class='cart-product__prices__price'>{{product?.price | currency: '':'$ ':'1.0-0':'en_US'}}</p>
+    <div class='cart-product__prices__quantity field'>
+      <p-inputNumber *ngIf='product' [(ngModel)]='product.buyQuantity' min='1' spinnerMode='vertical'
+        buttonLayout='vertical' [showButtons]='true' inputId='horizontal' mode='decimal'
+        incrementButtonIcon='pi pi-plus' decrementButtonIcon='pi pi-minus' (ngModelChange)='emitQuantityChanged()'>
       </p-inputNumber>
     </div>
   </div>

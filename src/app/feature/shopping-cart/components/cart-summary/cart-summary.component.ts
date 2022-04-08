@@ -4,13 +4,13 @@ import {
   Input,
   IterableDiffers,
   OnInit,
-} from "@angular/core";
-import { Product } from "@shared/interfaces/products-interface";
+} from '@angular/core';
+import { Product } from '@shared/interfaces/products-interface';
 
 @Component({
-  selector: "app-cart-summary",
-  templateUrl: "./cart-summary.component.html",
-  styleUrls: ["./cart-summary.component.sass"],
+  selector: 'app-cart-summary',
+  templateUrl: './cart-summary.component.html',
+  styleUrls: ['./cart-summary.component.sass'],
 })
 export class CartSummaryComponent implements OnInit, DoCheck {
   @Input() productsOnCart: Product[] = [];
@@ -19,16 +19,16 @@ export class CartSummaryComponent implements OnInit, DoCheck {
     this._iterableDiffer = _iterableDiffers;
   }
   private _iterableDiffer: IterableDiffers;
-  private todayDate: Date = new Date("2022/04/03");
+  private _todayDate: Date = new Date('2022/04/03');
 
-  public shippingPrice: number = 4000;
-  public subTotalPrice: number = 0;
-  public discount: number = 0;
+  public shippingPrice = 4000;
+  public subTotalPrice = 0;
+  public discount = 0;
 
-  public plusShipping: boolean = false;
+  public plusShipping = false;
 
   ngOnInit(): void {
-    console.log(this.todayDate.getDay());
+    console.log(this._todayDate.getDay());
   }
 
   ngDoCheck(): void {
@@ -42,7 +42,7 @@ export class CartSummaryComponent implements OnInit, DoCheck {
    * this method calculates the subtotal price of the products on cart
    */
   public getSubTotalPrice() {
-    let subTotalPrice: number = 0;
+    let subTotalPrice = 0;
     this.productsOnCart.forEach((product: Product) => {
       subTotalPrice += product.price * product.buyQuantity;
     });

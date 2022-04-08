@@ -1,12 +1,12 @@
-import { CommonModule } from "@angular/common";
-import { ComponentFixture, TestBed } from "@angular/core/testing";
-import { SharedModule } from "@shared/shared.module";
-import { SharedPrimeNGModule } from "@shared/sharedPrimeNG/shared-prime-ng/shared-prime-ng.module";
-import { CartSummaryComponent } from "../cart-summary/cart-summary.component";
+import { CommonModule } from '@angular/common';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { SharedModule } from '@shared/shared.module';
+import { SharedPrimeNGModule } from '@shared/sharedPrimeNG/shared-prime-ng/shared-prime-ng.module';
+import { CartSummaryComponent } from '../cart-summary/cart-summary.component';
 
-import { ShoppingCartComponent } from "./shopping-cart.component";
+import { ShoppingCartComponent } from './shopping-cart.component';
 
-describe("ShoppingCartComponent", () => {
+describe('ShoppingCartComponent', () => {
   let component: ShoppingCartComponent;
   let fixture: ComponentFixture<ShoppingCartComponent>;
 
@@ -23,7 +23,7 @@ describe("ShoppingCartComponent", () => {
     fixture.detectChanges();
   });
 
-  it("should create", () => {
+  it('should create', () => {
     expect(component).toBeTruthy();
   });
 });

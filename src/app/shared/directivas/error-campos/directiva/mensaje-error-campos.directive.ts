@@ -2,17 +2,17 @@
  * Directiva de validación de errores automáticamente (FromControl,FormControlName, NgModel)
  * @Version : 2.3
  *
- * Para que la directiva funcione y haga las respectivas validaciones es necesaria la etiqueta "validar"
+ * Para que la directiva funcione y haga las respectivas validaciones es necesaria la etiqueta 'validar'
  * al nivel igual o superior de los atributos(FromControl,FormControlName, NgModel)
  * - Ejemplo:
  *    <div validar>
- *      <input  [(ngModel)]="variable" [validaciones]="validaciones">
+ *      <input  [(ngModel)]='variable' [validaciones]='validaciones'>
  *    </div>
  *    O
- *    <input validar [formControl]="variable" >
+ *    <input validar [formControl]='variable' >
  *
- * La etiqueta "validar" puede ser remplazada en el archivo input-mensaje-errores-contenedor.directive.ts
- * una vez se encuentra un error agrega una clase al nivel del atributo "validar", el nombre de la clase de estilos
+ * La etiqueta 'validar' puede ser remplazada en el archivo input-mensaje-errores-contenedor.directive.ts
+ * una vez se encuentra un error agrega una clase al nivel del atributo 'validar', el nombre de la clase de estilos
  * esta en a variable @nombreClaseError la por defecto es 'clase-invalido'
  *
  * Una vez encontrado el error es necesaria la lista estandarizada con cada uno de los errores y sus respectivos mensajes

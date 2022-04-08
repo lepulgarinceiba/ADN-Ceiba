@@ -1,12 +1,10 @@
-import { Injectable } from "@angular/core";
-import { HttpService } from "@core/services/http.service";
-import { Product } from "@shared/interfaces/products-interface";
-import { Observable } from "rxjs";
-import { environment } from "src/environments/environment";
+import { Injectable } from '@angular/core';
+import { HttpService } from '@core/services/http.service';
+import { Product } from '@shared/interfaces/products-interface';
+import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
-@Injectable({
-  providedIn: "root",
-})
+@Injectable()
 export class ShoppingHistoryService {
   constructor(protected http: HttpService) {}
 
@@ -17,7 +15,7 @@ export class ShoppingHistoryService {
   public getShoppingHistory(): Observable<Product[]> {
     return this.http.doGet<Product[]>(
       `${environment.endpoint}shopping-history`,
-      this.http.optsName("consultar historial de compras")
+      this.http.optsName('consultar historial de compras')
     );
   }
 }

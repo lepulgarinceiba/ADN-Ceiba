@@ -1,16 +1,16 @@
-import { CommonModule } from "@angular/common";
-import { HttpClientModule } from "@angular/common/http";
-import { ComponentFixture, TestBed } from "@angular/core/testing";
-import { RouterTestingModule } from "@angular/router/testing";
-import { HttpService } from "@core/services/http.service";
-import { ProductsService } from "@products-list/shared/services/products.service";
-import { SharedModule } from "@shared/shared.module";
-import { SharedPrimeNGModule } from "@shared/sharedPrimeNG/shared-prime-ng/shared-prime-ng.module";
-import { of } from "rxjs";
+import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
+import { HttpService } from '@core/services/http.service';
+import { ProductsService } from '@products-list/shared/services/products.service';
+import { SharedModule } from '@shared/shared.module';
+import { SharedPrimeNGModule } from '@shared/sharedPrimeNG/shared-prime-ng/shared-prime-ng.module';
+import { of } from 'rxjs';
 
-import { ProductsListComponent } from "./products-list.component";
+import { ProductsListComponent } from './products-list.component';
 
-describe("ProductsListComponent", () => {
+describe('ProductsListComponent', () => {
   let component: ProductsListComponent;
   let fixture: ComponentFixture<ProductsListComponent>;
   let productsService: ProductsService;
@@ -33,11 +33,11 @@ describe("ProductsListComponent", () => {
     fixture = TestBed.createComponent(ProductsListComponent);
     component = fixture.componentInstance;
     productsService = TestBed.inject(ProductsService);
-    spyOn(productsService, "getProducts").and.returnValue(of([]));
+    spyOn(productsService, 'getProducts').and.returnValue(of([]));
     fixture.detectChanges();
   });
 
-  it("should create", () => {
+  it('should create', () => {
     expect(component).toBeTruthy();
     component.productsList$.subscribe((resultado) => {
       expect(0).toBe(resultado.length);

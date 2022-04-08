@@ -1,9 +1,9 @@
-import { ComponentFixture, TestBed } from "@angular/core/testing";
-import { SharedPrimeNGModule } from "@shared/sharedPrimeNG/shared-prime-ng/shared-prime-ng.module";
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { SharedPrimeNGModule } from '@shared/sharedPrimeNG/shared-prime-ng/shared-prime-ng.module';
 
-import { ProductElementSkeletonComponent } from "./product-element-skeleton.component";
+import { ProductElementSkeletonComponent } from './product-element-skeleton.component';
 
-describe("ProductElementSkeletonComponent", () => {
+describe('ProductElementSkeletonComponent', () => {
   let component: ProductElementSkeletonComponent;
   let fixture: ComponentFixture<ProductElementSkeletonComponent>;
 
@@ -20,7 +20,7 @@ describe("ProductElementSkeletonComponent", () => {
     fixture.detectChanges();
   });
 
-  it("should create", () => {
+  it('should create', () => {
     expect(component).toBeTruthy();
   });
 });

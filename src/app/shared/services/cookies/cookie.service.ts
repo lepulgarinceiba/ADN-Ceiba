@@ -1,9 +1,9 @@
-import { Injectable } from "@angular/core";
-import { CookieService } from "ngx-cookie-service";
-import { Observable, Subject } from "rxjs";
+import { Injectable } from '@angular/core';
+import { CookieService } from 'ngx-cookie-service';
+import { Observable, Subject } from 'rxjs';
 
 @Injectable({
-  providedIn: "root",
+  providedIn: 'root',
 })
 export class CookiesService {
   constructor(private _cookieService: CookieService) {
@@ -14,7 +14,7 @@ export class CookiesService {
 
   /**
    * this method are used to suscribe to the observable that emits the value of the cookie
-   * @returns {Observable<string>} the observable that emits the value of the cookie
+   * @returns the observable that emits the value of the cookie
    */
   public watchCookie(): Observable<string> {
     return this._cookieObservable$.asObservable();
@@ -29,8 +29,8 @@ export class CookiesService {
 
   /**
    * this method are used to set the value of the cookie
-   * @param {string} key is the key of the cookie
-   * @param {string} value is the value of the cookie
+   * @param key is the key of the cookie
+   * @param value is the value of the cookie
    */
   public setValue(key: string, value: string) {
     this._cookieService.set(key, value, this._cookieExpireDate);
@@ -39,8 +39,8 @@ export class CookiesService {
 
   /**
    * this method are used to get the value of the cookie
-   * @param {string} key is the key of the cookie
-   * @returns {string} the value of the cookie
+   * @param key is the key of the cookie
+   * @returns the value of the cookie
    */
   public getValue(key: string): string {
     return this._cookieService.get(key);

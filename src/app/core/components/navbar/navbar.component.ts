@@ -1,16 +1,16 @@
-import { Component, OnInit, OnDestroy } from "@angular/core";
-import { CookiesService } from "@shared/services/cookies/cookie.service";
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { CookiesService } from '@shared/services/cookies/cookie.service';
 
 @Component({
-  selector: "app-navbar",
-  templateUrl: "navbar.component.html",
-  styleUrls: ["navbar.component.sass"],
+  selector: 'app-navbar',
+  templateUrl: 'navbar.component.html',
+  styleUrls: ['navbar.component.sass'],
 })
 export class NavbarComponent implements OnInit, OnDestroy {
   constructor(private _cookieService: CookiesService) {}
 
-  public cartItemsQuantity: number = 0;
-  public sideBarVisible: boolean = false;
+  public cartItemsQuantity = 0;
+  public sideBarVisible = false;
 
   ngOnInit() {
     this.getCartItemsQuantity();
@@ -26,7 +26,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
    */
   public getCartItemsQuantity() {
     this.cartItemsQuantity = JSON.parse(
-      this._cookieService.getValue("cart") || "[]"
+      this._cookieService.getValue('cart') || '[]'
     ).length;
     this._cookieService.watchCookie().subscribe((cart) => {
       this.cartItemsQuantity = JSON.parse(cart).length;

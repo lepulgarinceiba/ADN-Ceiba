@@ -1,10 +1,10 @@
-import { ComponentFixture, TestBed } from "@angular/core/testing";
-import { SharedModule } from "@shared/shared.module";
-import { SharedPrimeNGModule } from "@shared/sharedPrimeNG/shared-prime-ng/shared-prime-ng.module";
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { SharedModule } from '@shared/shared.module';
+import { SharedPrimeNGModule } from '@shared/sharedPrimeNG/shared-prime-ng/shared-prime-ng.module';
 
-import { CartProductElementComponent } from "./cart-product-element.component";
+import { CartProductElementComponent } from './cart-product-element.component';
 
-describe("CartProductElementComponent", () => {
+describe('CartProductElementComponent', () => {
   let component: CartProductElementComponent;
   let fixture: ComponentFixture<CartProductElementComponent>;
 
@@ -21,7 +21,7 @@ describe("CartProductElementComponent", () => {
     fixture.detectChanges();
   });
 
-  it("should create", () => {
+  it('should create', () => {
     expect(component).toBeTruthy();
   });
 });

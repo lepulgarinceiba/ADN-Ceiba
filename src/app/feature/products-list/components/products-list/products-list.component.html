@@ -1,18 +1,18 @@
-<div class="container">
+<div class='container'>
   <section>
-    <div class="section-tittle">
-      <h1 class="sm:ml-4">Lista de productos</h1>
+    <div class='section-tittle'>
+      <h1 class='sm:ml-4'>Lista de productos</h1>
     </div>
   </section>
   <section>
-    <div class="products_grid">
-      <ng-template ngFor let-product [ngForOf]="productsList$ | async" [ngForTrackBy]="('id' | trackBy)">
-        <div class="products_grid__element">
-          <app-product-element [product]="product"></app-product-element>
+    <div class='products_grid'>
+      <ng-template ngFor let-product [ngForOf]='productsList$ | async' [ngForTrackBy]='(" id" | trackBy)'>
+        <div class='products_grid__element'>
+          <app-product-element [product]='product'></app-product-element>
         </div>
       </ng-template>
-      <ng-container *ngIf="loadingProductsList">
-        <div class="products_grid__element p-2" *ngFor="let i of [0 ,1]">
+      <ng-container *ngIf='loadingProductsList'>
+        <div class='products_grid__element p-2' *ngFor='let i of [0 ,1]'>
           <app-product-element-skeleton></app-product-element-skeleton>
         </div>
       </ng-container>
