@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import productType from '@shared/interfaces/product-type-dictionary';
+import productType from '@shared/dictionaries/product-type';
 import { Product } from '@shared/interfaces/products-interface';
 
 @Component({

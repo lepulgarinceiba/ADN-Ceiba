@@ -17,35 +17,83 @@ export class CartSummaryComponent implements OnInit, DoCheck {
 
   constructor(_iterableDiffers: IterableDiffers) {
     this._iterableDiffer = _iterableDiffers;
+    this.shippingStartDate = this._calculateShippingDates(
+      new Date(this._todayDate.getTime())
+    );
+    this.shippingEndDate = this._calculateShippingDates(
+      new Date(this.shippingStartDate.getTime())
+    );
   }
   private _iterableDiffer: IterableDiffers;
-  private _todayDate: Date = new Date('2022/04/03');
+  private _todayDate: Date = new Date('2022/04/07');
+  private _holidays = [
+    '01/01',
+    '01/11',
+    '03/22',
+    '04/02',
+    '04/02',
+    '05/01',
+    '05/09',
+    '05/17',
+    '06/07',
+    '06/14',
+    '07/05',
+    '07/20',
+    '08/07',
+    '08/16',
+    '09/07',
+    '09/16',
+    '10/18',
+    '11/01',
+    '11/15',
+    '12/25',
+  ];
 
   public shippingPrice = 4000;
   public subTotalPrice = 0;
   public discount = 0;
+  public shippingStartDate: Date;
+  public shippingEndDate: Date;
 
   public plusShipping = false;
 
-  ngOnInit(): void {
-    console.log(this._todayDate.getDay());
-  }
+  ngOnInit(): void {}
 
   ngDoCheck(): void {
     const changes = this._iterableDiffer.find(this.productsOnCart ?? []);
     if (changes) {
-      this.getSubTotalPrice();
+      this._getSubTotalPrice();
     }
   }
 
   /**
    * this method calculates the subtotal price of the products on cart
    */
-  public getSubTotalPrice() {
+  private _getSubTotalPrice() {
     let subTotalPrice = 0;
     this.productsOnCart.forEach((product: Product) => {
       subTotalPrice += product.price * product.buyQuantity;
     });
     this.subTotalPrice = subTotalPrice;
+  }
+
+  private _calculateShippingDates(date: Date) {
+    let shippingDate = date;
+    Array.from(Array(3)).forEach(() => {
+      shippingDate = this._nextBusinessDay(shippingDate);
+    });
+    return shippingDate;
+  }
+
+  private _nextBusinessDay(date: Date) {
+    date.setDate(date.getDate() + 1);
+    if (
+      date.getDay() % 6 === 0 ||
+      this._holidays.includes(`${date.getMonth() + 1}/${date.getDate()}`)
+    ) {
+      return this._nextBusinessDay(new Date(date.setDate(date.getDate() + 1)));
+    } else {
+      return date;
+    }
   }
 }

@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MessageService } from 'primeng-lts/api';
 import { Product } from '../../interfaces/products-interface';
-import productType from '../../interfaces/product-type-dictionary';
+import productType from '../../dictionaries/product-type';
 import { CookiesService } from '@shared/services/cookies/cookie.service';
 
 @Component({
