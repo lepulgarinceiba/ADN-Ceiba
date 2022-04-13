@@ -18,9 +18,6 @@ export class ProductsListComponent implements OnInit {
     this.getProductsList();
   }
 
-  /**
-   * this method is used to get the products list
-   */
   public getProductsList() {
     this.loadingProductsList = true;
     this.productsList$ = this._productsService

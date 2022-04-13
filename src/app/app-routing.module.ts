@@ -24,11 +24,6 @@ const routes: Routes = [
         (mod) => mod.ShoppingHistoryModule
       ),
   },
-  {
-    path: 'producto',
-    loadChildren: () =>
-      import('@producto/producto.module').then((mod) => mod.ProductoModule),
-  },
   { path: '', redirectTo: '/products', pathMatch: 'full' },
 ];
 

@@ -1,20 +1,35 @@
 <div class='cart-summary'>
   <h2>Resumen de tu orden</h2>
   <div class='cart-summary__prices'>
-    <p>Sub-total productos <span>{{subTotalPrice | currency: '':'$ ':'1.0-0':'en_US'}}</span></p>
-    <p>Costo de envío <span>{{shippingPrice | currency: '':'$ ':'1.0-0':'en_US'}}</span></p>
-    <p>Descuentos <span>- {{discount | currency: '':'$ ':'1.0-0':'en_US'}}</span></p>
-    <p>Total <span>{{subTotalPrice + shippingPrice - discount | currency: '':'$ ':'1.0-0':'en_US'}}</span></p>
+    <p>Sub-total productos <span>{{getPrices().subTotalPrice | currency: '':'$ ':'1.0-0':'en_US'}}</span></p>
+    <p>Costo de envío
+      <span>{{getPrices().shippingPrice| currency: '':'$ ':'1.0-0':'en_US'}}</span></p>
+    <p>Descuentos <span>- {{getPrices().discount | currency: '':'$ ':'1.0-0':'en_US'}}</span></p>
+    <p>Total
+      <span>{{getPrices().subTotalPrice + getPrices().shippingPrice - getPrices().discount | currency: '':'$ ':'1.0-0':'en_US'}}</span>
+    </p>
   </div>
   <div class='cart-summary__shipping'>
-    <p>Fecha estimada de entrega: {{shippingStartDate | date: "MM/dd/yyyy"}} -
-      {{shippingEndDate | date: "MM/dd/yyyy"}}</p>
+    <p *ngIf="!plusShipping">Fecha estimada de entrega: {{getShippingDates().shippingStartDate | date: "MM/dd/yyyy"}} -
+      {{getShippingDates().shippingEndDate | date: "MM/dd/yyyy"}}</p>
     <div class='p-field-checkbox'>
-      <p-checkbox [(ngModel)]='plusShipping' binary='true' inputId='plusShipping'></p-checkbox>
+      <p-checkbox [(ngModel)]='plusShipping' binary='true' inputId='plusShipping'
+        (ngModelChange)="onPlusShippingCheckChanged()">
+      </p-checkbox>
       <label for='binary' class='ml-2'>Deseo recibir mi pedido un día específico</label>
     </div>
+    <form [formGroup]="plusShippingDateForm">
+      <div class='p-fluid grid' *ngIf="plusShipping">
+        <div class='field col-12 mt-3'>
+          <label for="plusShippingDate">¿Cuándo desea recibir sus productos?</label>
+          <p-calendar inputId="plusShippingDate" [minDate]="getShippingDates().minShippingDate" [showIcon]="true"
+            formControlName="shippingDate"></p-calendar>
+        </div>
+      </div>
+    </form>
   </div>
-  <div class='cart-summary__payment mt-6'>
-    <button pButton pRipple type='button' class='p-btn-primary p-button-lg' label='Comprar'></button>
+  <div class='cart-summary__payment mt-4'>
+    <button id='buyButton' [disabled]="plusShippingDateForm.invalid || productsOnCart.length === 0" pButton pRipple
+      type='button' class='p-btn-primary p-button-lg' label='Comprar'></button>
   </div>
 </div>

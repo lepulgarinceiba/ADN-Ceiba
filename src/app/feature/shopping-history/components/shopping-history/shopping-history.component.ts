@@ -19,9 +19,6 @@ export class ShoppingHistoryComponent implements OnInit {
     this.getShoppingHistory();
   }
 
-  /**
-   * this method is used to get the shopping history
-   */
   public getShoppingHistory() {
     this.loadingShoppingHistory = true;
     this.shoppingHistory$ = this._shoppingHistoryService

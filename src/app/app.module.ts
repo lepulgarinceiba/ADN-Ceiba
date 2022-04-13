@@ -4,12 +4,9 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { ProductoModule } from '@producto/producto.module';
 import { CoreModule } from '@core/core.module';
 import { CookieService } from 'ngx-cookie-service';
-import { ProductsListModule } from '@products-list/products-list.module';
-import { ShoppingCartModule } from './feature/shopping-cart/shopping-cart.module';
-import { ShoppingHistoryModule } from '@shopping-history/shopping-history.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent],
@@ -17,11 +14,8 @@ import { ShoppingHistoryModule } from '@shopping-history/shopping-history.module
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    ProductoModule,
     CoreModule,
-    ProductsListModule,
-    ShoppingCartModule,
-    ShoppingHistoryModule,
+    HttpClientModule,
   ],
   providers: [CookieService],
   bootstrap: [AppComponent],

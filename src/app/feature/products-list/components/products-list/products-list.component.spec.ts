@@ -6,6 +6,7 @@ import { HttpService } from '@core/services/http.service';
 import { ProductsService } from '@products-list/shared/services/products.service';
 import { SharedModule } from '@shared/shared.module';
 import { SharedPrimeNGModule } from '@shared/sharedPrimeNG/shared-prime-ng/shared-prime-ng.module';
+import { MessageService } from 'primeng-lts/api';
 import { of } from 'rxjs';
 
 import { ProductsListComponent } from './products-list.component';
@@ -25,7 +26,7 @@ describe('ProductsListComponent', () => {
         HttpClientModule,
         RouterTestingModule,
       ],
-      providers: [ProductsService, HttpService],
+      providers: [ProductsService, HttpService, MessageService],
     }).compileComponents();
   });
 
@@ -37,8 +38,11 @@ describe('ProductsListComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create products list component', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should load products list', () => {
     component.productsList$.subscribe((resultado) => {
       expect(0).toBe(resultado.length);
     });

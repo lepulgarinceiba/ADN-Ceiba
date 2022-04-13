@@ -3,6 +3,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { CookiesService } from '@shared/services/cookies/cookie.service';
 import { SharedModule } from '@shared/shared.module';
 import { SharedPrimeNGModule } from '@shared/sharedPrimeNG/shared-prime-ng/shared-prime-ng.module';
+import { CartSummaryService } from '@shopping-cart/shared/services/cart-summary/cart-summary.service';
 import { CartProductElementComponent } from '../cart-product-element/cart-product-element.component';
 import { CartSummaryComponent } from '../cart-summary/cart-summary.component';
 
@@ -29,7 +30,7 @@ describe('ShoppingCartComponent', () => {
         CartProductElementComponent,
       ],
       imports: [CommonModule, SharedModule, SharedPrimeNGModule],
-      providers: [CookiesService],
+      providers: [CookiesService, CartSummaryService],
     }).compileComponents();
   });
 
@@ -43,7 +44,11 @@ describe('ShoppingCartComponent', () => {
 
   it('should create shopping cart component', () => {
     expect(component).toBeTruthy();
-    expect(component.productsOnCart.length).toBe(1);
+  });
+
+  it('should load products on cart', () => {
+    component.loadCartFromCookie();
+    expect(component.productsOnCart).toEqual([product]);
   });
 
   it('should remove product from cart', () => {

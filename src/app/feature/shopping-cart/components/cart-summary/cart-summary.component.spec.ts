@@ -4,6 +4,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { SharedModule } from '@shared/shared.module';
 import { SharedPrimeNGModule } from '@shared/sharedPrimeNG/shared-prime-ng/shared-prime-ng.module';
+import { CartSummaryService } from '@shopping-cart/shared/services/cart-summary/cart-summary.service';
 
 import { CartSummaryComponent } from './cart-summary.component';
 
@@ -21,6 +22,7 @@ describe('CartSummaryComponent', () => {
         SharedModule,
         SharedPrimeNGModule,
       ],
+      providers: [CartSummaryService],
     }).compileComponents();
   });
 

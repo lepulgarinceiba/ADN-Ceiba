@@ -7,6 +7,7 @@ import { InputNumberModule } from 'primeng-lts/inputnumber';
 import { SkeletonModule } from 'primeng-lts/skeleton';
 import { SidebarModule } from 'primeng-lts/sidebar';
 import { CheckboxModule } from 'primeng-lts/checkbox';
+import { CalendarModule } from 'primeng-lts/calendar';
 
 @NgModule({
   declarations: [],
@@ -19,6 +20,7 @@ import { CheckboxModule } from 'primeng-lts/checkbox';
     SkeletonModule,
     SidebarModule,
     CheckboxModule,
+    CalendarModule,
   ],
   exports: [
     ButtonModule,
@@ -28,6 +30,7 @@ import { CheckboxModule } from 'primeng-lts/checkbox';
     SkeletonModule,
     SidebarModule,
     CheckboxModule,
+    CalendarModule,
   ],
 })
 export class SharedPrimeNGModule {}

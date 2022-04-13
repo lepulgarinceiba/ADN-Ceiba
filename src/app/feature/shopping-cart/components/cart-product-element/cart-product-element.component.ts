@@ -17,16 +17,10 @@ export class CartProductElementComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  /**
-   * this method emits the quantityChanged event
-   */
   public emitQuantityChanged() {
     this.quantityChanged.emit();
   }
 
-  /**
-   * this method emits the removeFromCart event
-   */
   public emitRemoveFromCart() {
     this.removeFromCart.emit(this.product);
   }

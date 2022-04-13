@@ -6,6 +6,8 @@ import { SharedModule } from '@shared/shared.module';
 import { CartSummaryComponent } from './components/cart-summary/cart-summary.component';
 import { CartProductElementComponent } from './components/cart-product-element/cart-product-element.component';
 import { SharedPrimeNGModule } from '@shared/sharedPrimeNG/shared-prime-ng/shared-prime-ng.module';
+import { FormsModule } from '@angular/forms';
+import { CartSummaryService } from './shared/services/cart-summary/cart-summary.service';
 
 @NgModule({
   declarations: [
@@ -18,6 +20,8 @@ import { SharedPrimeNGModule } from '@shared/sharedPrimeNG/shared-prime-ng/share
     ShoppingCartRoutingModule,
     SharedModule,
     SharedPrimeNGModule,
+    FormsModule,
   ],
+  providers: [CartSummaryService],
 })
 export class ShoppingCartModule {}

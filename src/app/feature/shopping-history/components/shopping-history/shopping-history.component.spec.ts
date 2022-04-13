@@ -37,8 +37,11 @@ describe('ShoppingHistoryComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create shopping history component', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should load shopping history', () => {
     component.shoppingHistory$.subscribe((resultado) => {
       expect(0).toBe(resultado.length);
     });

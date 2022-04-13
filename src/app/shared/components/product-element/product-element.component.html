@@ -11,9 +11,8 @@
     <p *ngIf='isHistoryProduct' class='product-container__info__stock'>
       Fecha de compra: {{product?.boughtAt | date: 'dd/MM/yyyy hh:mm'}}
     </p>
-    <button *ngIf='!isHistoryProduct' pButton pRipple type='button'
+    <button id='addToCart{{product?.id}}' *ngIf='!isHistoryProduct' pButton pRipple type='button'
       class='product-container__info__cart-button p-btn-primary' (click)='addToCart(product)'
       label='Añadir al carrito'></button>
   </div>
 </div>
-<p-toast></p-toast>

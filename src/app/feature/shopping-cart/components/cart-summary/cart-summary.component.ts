@@ -1,104 +1,51 @@
-import {
-  Component,
-  DoCheck,
-  Input,
-  IterableDiffers,
-  OnInit,
-} from '@angular/core';
+import { Component, DoCheck, Input, IterableDiffers } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Product } from '@shared/interfaces/products-interface';
+import { CartSummaryService } from '@shopping-cart/shared/services/cart-summary/cart-summary.service';
 
 @Component({
   selector: 'app-cart-summary',
   templateUrl: './cart-summary.component.html',
   styleUrls: ['./cart-summary.component.sass'],
+  providers: [CartSummaryService],
 })
-export class CartSummaryComponent implements OnInit, DoCheck {
+export class CartSummaryComponent implements DoCheck {
   @Input() productsOnCart: Product[] = [];
 
-  constructor(_iterableDiffers: IterableDiffers) {
+  constructor(
+    _iterableDiffers: IterableDiffers,
+    private _cartSummaryService: CartSummaryService,
+    private fb: FormBuilder
+  ) {
     this._iterableDiffer = _iterableDiffers;
-    this.shippingPrice = 4000;
-    this.subTotalPrice = 0;
-    this.discount = 0;
-    this.shippingStartDate = this._calculateShippingDates(
-      new Date(this._todayDate.getTime())
-    );
-    this.shippingEndDate = this._calculateShippingDates(
-      new Date(this.shippingStartDate.getTime())
-    );
   }
   private _iterableDiffer: IterableDiffers;
-  private _todayDate: Date = new Date('2022/04/07');
-  private _holidays = [
-    '01/01',
-    '01/11',
-    '03/22',
-    '04/02',
-    '04/02',
-    '05/01',
-    '05/09',
-    '05/17',
-    '06/07',
-    '06/14',
-    '07/05',
-    '07/20',
-    '08/07',
-    '08/16',
-    '09/07',
-    '09/16',
-    '10/18',
-    '11/01',
-    '11/15',
-    '12/25',
-  ];
-
-  public shippingPrice: number;
-  public subTotalPrice: number;
-  public discount: number;
-  public shippingStartDate: Date;
-  public shippingEndDate: Date;
-
   public plusShipping = false;
-
-  ngOnInit(): void {}
+  public plusShippingDateForm: FormGroup = this.fb.group({
+    shippingDate: [{ value: '', disabled: true }, Validators.required],
+  });
 
   ngDoCheck(): void {
-    const changes = this._iterableDiffer.find(this.productsOnCart ?? []);
+    const changes = this._iterableDiffer.find(this.productsOnCart);
     if (changes) {
-      this._getSubTotalPrice();
+      this._cartSummaryService.calculateSubTotalPrice(this.productsOnCart);
+      this._cartSummaryService.calculateShippingPricesAndDiscounts(
+        this.plusShipping
+      );
     }
   }
 
-  /**
-   * this method calculates the subtotal price of the products on cart
-   */
-  private _getSubTotalPrice() {
-    let subTotalPrice = 0;
-    this.productsOnCart.forEach((product: Product) => {
-      subTotalPrice += product.price * product.buyQuantity;
-    });
-    this.subTotalPrice = subTotalPrice;
+  public getPrices() {
+    return this._cartSummaryService.getPrices();
   }
 
-  private _calculateShippingDates(date: Date) {
-    let shippingDate = date;
-    const cicleTimes = 3;
-    Array.from(Array(cicleTimes)).forEach(() => {
-      shippingDate = this._nextBusinessDay(shippingDate);
-    });
-    return shippingDate;
+  public getShippingDates() {
+    return this._cartSummaryService.getShippingDates();
   }
 
-  private _nextBusinessDay(date: Date) {
-    date.setDate(date.getDate() + 1);
-    const operator = 6;
-    if (
-      date.getDay() % operator === 0 ||
-      this._holidays.includes(`${date.getMonth() + 1}/${date.getDate()}`)
-    ) {
-      return this._nextBusinessDay(new Date(date.setDate(date.getDate() + 1)));
-    } else {
-      return date;
-    }
+  public onPlusShippingCheckChanged() {
+    this.plusShipping
+      ? this.plusShippingDateForm.controls.shippingDate.enable()
+      : this.plusShippingDateForm.controls.shippingDate.disable();
   }
 }
