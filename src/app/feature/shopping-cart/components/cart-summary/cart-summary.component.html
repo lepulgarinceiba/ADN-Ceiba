@@ -30,6 +30,6 @@
   </div>
   <div class='cart-summary__payment mt-4'>
     <button id='buyButton' [disabled]="plusShippingDateForm.invalid || productsOnCart.length === 0" pButton pRipple
-      type='button' class='p-btn-primary p-button-lg' label='Comprar'></button>
+      type='button' class='p-btn-primary p-button-lg' label='Comprar' (click)="onEmitCheckoutData()"></button>
   </div>
 </div>

@@ -8,12 +8,15 @@ import { CartProductElementComponent } from './components/cart-product-element/c
 import { SharedPrimeNGModule } from '@shared/sharedPrimeNG/shared-prime-ng/shared-prime-ng.module';
 import { FormsModule } from '@angular/forms';
 import { CartSummaryService } from './shared/services/cart-summary/cart-summary.service';
+import { CheckoutDataComponent } from './components/checkout-data/checkout-data.component';
+import { MessageService } from 'primeng-lts/api';
 
 @NgModule({
   declarations: [
     ShoppingCartComponent,
     CartSummaryComponent,
     CartProductElementComponent,
+    CheckoutDataComponent,
   ],
   imports: [
     CommonModule,
@@ -22,6 +25,6 @@ import { CartSummaryService } from './shared/services/cart-summary/cart-summary.
     SharedPrimeNGModule,
     FormsModule,
   ],
-  providers: [CartSummaryService],
+  providers: [CartSummaryService, MessageService],
 })
 export class ShoppingCartModule {}

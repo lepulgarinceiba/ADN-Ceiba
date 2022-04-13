@@ -17,7 +17,12 @@
       </div>
     </div>
     <div class='col-12 lg:col-4'>
-      <app-cart-summary [productsOnCart]='productsOnCart'></app-cart-summary>
+      <app-cart-summary [productsOnCart]='productsOnCart' (emitCheckoutData)="showCheckoutData()"></app-cart-summary>
     </div>
   </div>
 </div>
+<p-dialog [(visible)]="showCartCheckoutData" [breakpoints]="{'960px': '70vw', '640px': '90vw'}"
+  [style]="{width: '40vw'}" header="Finalizar compra" [modal]="true">
+  <app-checkout-data (finishCheckout)="finishCheckout()"></app-checkout-data>
+</p-dialog>
+<p-toast></p-toast>

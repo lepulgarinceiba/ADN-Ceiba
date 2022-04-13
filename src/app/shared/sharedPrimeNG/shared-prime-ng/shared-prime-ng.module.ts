@@ -8,6 +8,8 @@ import { SkeletonModule } from 'primeng-lts/skeleton';
 import { SidebarModule } from 'primeng-lts/sidebar';
 import { CheckboxModule } from 'primeng-lts/checkbox';
 import { CalendarModule } from 'primeng-lts/calendar';
+import { DialogModule } from 'primeng-lts/dialog';
+import { InputTextModule } from 'primeng-lts/inputtext';
 
 @NgModule({
   declarations: [],
@@ -21,6 +23,8 @@ import { CalendarModule } from 'primeng-lts/calendar';
     SidebarModule,
     CheckboxModule,
     CalendarModule,
+    DialogModule,
+    InputTextModule,
   ],
   exports: [
     ButtonModule,
@@ -31,6 +35,8 @@ import { CalendarModule } from 'primeng-lts/calendar';
     SidebarModule,
     CheckboxModule,
     CalendarModule,
+    DialogModule,
+    InputTextModule,
   ],
 })
 export class SharedPrimeNGModule {}

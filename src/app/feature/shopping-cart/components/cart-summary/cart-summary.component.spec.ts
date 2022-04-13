@@ -5,6 +5,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { SharedModule } from '@shared/shared.module';
 import { SharedPrimeNGModule } from '@shared/sharedPrimeNG/shared-prime-ng/shared-prime-ng.module';
 import { CartSummaryService } from '@shopping-cart/shared/services/cart-summary/cart-summary.service';
+import { CheckoutDataComponent } from '../checkout-data/checkout-data.component';
 
 import { CartSummaryComponent } from './cart-summary.component';
 
@@ -14,7 +15,7 @@ describe('CartSummaryComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [CartSummaryComponent],
+      declarations: [CartSummaryComponent, CheckoutDataComponent],
       imports: [
         HttpClientModule,
         RouterTestingModule,

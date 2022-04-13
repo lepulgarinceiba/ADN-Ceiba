@@ -1,4 +1,11 @@
-import { Component, DoCheck, Input, IterableDiffers } from '@angular/core';
+import {
+  Component,
+  DoCheck,
+  EventEmitter,
+  Input,
+  IterableDiffers,
+  Output,
+} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Product } from '@shared/interfaces/products-interface';
 import { CartSummaryService } from '@shopping-cart/shared/services/cart-summary/cart-summary.service';
@@ -11,6 +18,7 @@ import { CartSummaryService } from '@shopping-cart/shared/services/cart-summary/
 })
 export class CartSummaryComponent implements DoCheck {
   @Input() productsOnCart: Product[] = [];
+  @Output() emitCheckoutData = new EventEmitter();
 
   constructor(
     _iterableDiffers: IterableDiffers,
@@ -47,5 +55,9 @@ export class CartSummaryComponent implements DoCheck {
     this.plusShipping
       ? this.plusShippingDateForm.controls.shippingDate.enable()
       : this.plusShippingDateForm.controls.shippingDate.disable();
+  }
+
+  public onEmitCheckoutData() {
+    this.emitCheckoutData.emit();
   }
 }

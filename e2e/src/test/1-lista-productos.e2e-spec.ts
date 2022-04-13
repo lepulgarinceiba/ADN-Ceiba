@@ -22,12 +22,17 @@ describe('workspace-project Lista Productos', () => {
     expect(8).toBe(listaProductos.contarProductos());
   });
 
-  it('Debería agregar un producto al carrito', async () => {
+  it('Debería agregar dos producto al carrito', async () => {
     browser
       .actions()
       .mouseMove(await listaProductos.obtenerProducto(0))
       .perform();
-    listaProductos.clickBotonAñadirCarrito(0);
+    await listaProductos.clickBotonAñadirCarrito(0);
+    browser
+      .actions()
+      .mouseMove(await listaProductos.obtenerProducto(1))
+      .perform();
+    await listaProductos.clickBotonAñadirCarrito(1);
     expect(listaProductos.obtenerMensajeAgregadoCarrito()).toBe(
       'Producto agregado al carrito'
     );

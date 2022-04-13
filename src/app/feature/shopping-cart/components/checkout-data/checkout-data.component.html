@@ -1,0 +1,29 @@
+<div class="checkout-data">
+  <p class="mt-0">Para continuar con tu compra ingresa los siguientes datos</p>
+  <form [formGroup]="checkoutDataForm" (ngSubmit)="checkout()">
+    <div class="checkout-data__field field">
+      <label for="fullName">Nombre completo</label>
+      <input id="fullName" type="text" aria-describedby="fullName-help" formControlName="fullName" [ngClass]="{
+          'ng-invalid ng-dirty': checkFormFieldsValidity('fullName')
+        }" pInputText />
+      <small *ngIf="checkFormFieldsValidity('fullName')" id="fullName-help" class="p-error">Nombre requerido.</small>
+    </div>
+    <div class="checkout-data__field field">
+      <label for="email">Correo electrónico</label>
+      <input id="email" type="text" aria-describedby="email-help" formControlName="email"
+        [ngClass]="{ 'ng-invalid ng-dirty': checkFormFieldsValidity('email') }" pInputText />
+      <small *ngIf="checkFormFieldsValidity('email')" id="email-help" class="p-error">Correo requerido.</small>
+    </div>
+    <div class="checkout-data__field field">
+      <label for="address">Dirección</label>
+      <input id="address" type="text" aria-describedby="address-help" formControlName="address" [ngClass]="{
+          'ng-invalid ng-dirty': checkFormFieldsValidity('address')
+        }" pInputText />
+      <small *ngIf="checkFormFieldsValidity('address')" id="address-help" class="p-error">Dirección requerida.</small>
+    </div>
+    <div class="checkout-data__submit field">
+      <button id="checkoutButton" pButton pRipple type="submit" class="p-btn-primary"
+        label="Finalizar compra" [disabled]="checkoutDataForm.invalid"></button>
+    </div>
+  </form>
+</div>

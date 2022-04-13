@@ -4,8 +4,10 @@ import { CookiesService } from '@shared/services/cookies/cookie.service';
 import { SharedModule } from '@shared/shared.module';
 import { SharedPrimeNGModule } from '@shared/sharedPrimeNG/shared-prime-ng/shared-prime-ng.module';
 import { CartSummaryService } from '@shopping-cart/shared/services/cart-summary/cart-summary.service';
+import { MessageService } from 'primeng-lts/api';
 import { CartProductElementComponent } from '../cart-product-element/cart-product-element.component';
 import { CartSummaryComponent } from '../cart-summary/cart-summary.component';
+import { CheckoutDataComponent } from '../checkout-data/checkout-data.component';
 
 import { ShoppingCartComponent } from './shopping-cart.component';
 
@@ -28,9 +30,10 @@ describe('ShoppingCartComponent', () => {
         ShoppingCartComponent,
         CartSummaryComponent,
         CartProductElementComponent,
+        CheckoutDataComponent,
       ],
       imports: [CommonModule, SharedModule, SharedPrimeNGModule],
-      providers: [CookiesService, CartSummaryService],
+      providers: [CookiesService, CartSummaryService, MessageService],
     }).compileComponents();
   });
 
